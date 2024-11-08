@@ -18,8 +18,9 @@ const whatsappController = {
             const entry = (req.body['entry'])[0];//como es una lista, tomamos el primer elemento
             const changes = (entry['changes'])[0];
             const value = changes['value'];
-            const messageObj = value['message'];
-            console.log(messageObj);
+            const messageObj = value['messages'];
+            const message = messageObj[0].text;
+            console.log(message);
 
             res.status(200).send('EVENT_RECEIVED'); //tenemos que siempre devolver EVENT_RECEIVED cuando recibimos un mensaje
         } catch (error) {
