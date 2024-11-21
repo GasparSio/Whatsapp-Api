@@ -19,6 +19,7 @@ const whatsappController = {
             const changes = (entry['changes'])[0];
             const value = changes['value'];
             const messageObj = value['messages'];
+            
             if (typeof messageObj !== 'undefined') {
                 const messages = messageObj[0];
                 const text = getTextUser(messages);
