@@ -1,3 +1,6 @@
+import sendMessageWhatsapp from "../services/whatsapp.service";
+import { sampleText, sampleImage, sampleAudio, sampleVideo, sampleDocument } from "../shared/sample.model";
+
 const whatsappController = {
     verifyToken: (req, res) => {
         try {
@@ -13,17 +16,21 @@ const whatsappController = {
             res.status(400).send();
         }
     },
+    //Recibimos el mensaje de wts
     receiveMessage: (req, res) => {
         try {
             const entry = (req.body['entry'])[0];//como es una lista, tomamos el primer elemento
             const changes = (entry['changes'])[0];
             const value = changes['value'];
             const messageObj = value['messages'];
-            
+
             if (typeof messageObj !== 'undefined') {
                 const messages = messageObj[0];
+                const number = messages["from"];
+
                 const text = getTextUser(messages);
                 console.log(text);
+                
             }
 
             res.status(200).send('EVENT_RECEIVED'); //tenemos que siempre devolver EVENT_RECEIVED cuando recibimos un mensaje
@@ -31,8 +38,6 @@ const whatsappController = {
             res.send('EVENT_RECEIVED');
         }
     }
-
-
 };
 
 function getTextUser(messages) {

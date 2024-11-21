@@ -1,27 +1,18 @@
 import https from 'https';
-
-const sendMessageWhatsapp = (textResponse, number) => {
-    const data = JSON.stringify({
-        "messaging_product": "whatsapp",
-        "to": number,
-        "text": {
-            "body": textResponse
-        },
-        "type": "text"
-    });
-
+//Para enviar un mensaje a whatsapp
+const sendMessageWhatsapp = (data) => {
     const options = {
         host: "graph.facebook.com",
         path: "/v21.0/482148021647494/messages",
         method: "POST",
         body: data,
-        header: {
+        headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${process.env.WHATSAPP_TOKEN}`
         } 
     }
 
-    const request = https.request(options, res => {
+    const req = https.request(options, res => {
         res.on('data', d => {
             process.stdout.write(d);
         });
