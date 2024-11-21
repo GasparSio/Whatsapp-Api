@@ -19,8 +19,11 @@ const whatsappController = {
             const changes = (entry['changes'])[0];
             const value = changes['value'];
             const messageObj = value['messages'];
-            const message = messageObj[0].text;
-            console.log(message);
+            if (typeof messageObj !== 'undefined') {
+                const messages = messageObj[0];
+                const text = getTextUser(messages);
+                console.log(text);
+            }
 
             res.status(200).send('EVENT_RECEIVED'); //tenemos que siempre devolver EVENT_RECEIVED cuando recibimos un mensaje
         } catch (error) {
@@ -28,6 +31,29 @@ const whatsappController = {
         }
     }
 
+
+};
+
+function getTextUser(messages) {
+    const text = '';
+    const typeMessage = messages['type'];
+
+    if (typeMessage === 'text'){
+        text = (messages['text'])['body'];
+    }
+    if (typeMessage === 'interactive'){
+        const interactiveObj = messages['interactive'];
+        const interactiveType = interactiveObj['type'];
+        if (interactiveType === 'button_reply'){
+            text = (interactiveObj['button_reply'])['title'];
+        }
+        if(interactiveType === 'list_reply'){
+            text = (interactiveObj['list_reply'])['title'];
+        }
+    }
+    console.log('sin mensaje');
+
+    return text;
 };
 export default whatsappController;
 

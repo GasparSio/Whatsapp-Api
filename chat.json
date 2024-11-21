@@ -1,0 +1,43 @@
+
+{
+  "message_id": "277bad2a-d1f4-4295-bc46-5e6ba7d6c9f5",
+  "direction": "inbound",
+  "message_type": "text",
+  "created_at": "2024-11-12T02:05:55+00:00",
+  "text": "No, quiero cambiar"
+},
+{
+  "message_id": "190bea48-8d61-46d3-a7ca-608ec0430899",
+  "direction": "outbound",
+  "message_type": "waba_interactive",
+  "created_at": "2024-11-12T02:06:00.437122+00:00",
+  "text": "Mensaje sin texto"
+},
+{
+  "message_id": "4295dc59-204d-48a6-82ca-f51866bb09b8",
+  "direction": "inbound",
+  "message_type": "text",
+  "created_at": "2024-11-12T02:06:21+00:00",
+  "text": "Otro"
+},
+{
+  "message_id": "3f09d45d-f595-4f57-8b70-180718134380",
+  "direction": "inbound",
+  "message_type": "text",
+  "created_at": "2024-11-12T02:07:06+00:00",
+  "text": "Fecha"
+},
+{
+  "message_id": "3dcd478c-f095-4e9a-b247-4f00d78a6373",
+  "direction": "inbound",
+  "message_type": "text",
+  "created_at": "2024-11-12T02:07:54+00:00",
+  "text": "Óptica y fecha"
+},
+{
+  "message_id": "6670498c-2442-4484-bd4f-221558e448e0",
+  "direction": "outbound",
+  "message_type": "text",
+  "created_at": "2024-11-12T08:50:30.129499+00:00",
+  "text": "Cuando le iría bien?"
+}
